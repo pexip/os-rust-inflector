@@ -1,0 +1,109 @@
+Source: rust-inflector
+Section: rust
+Priority: optional
+Build-Depends: debhelper (>= 12),
+ dh-cargo (>= 25),
+ cargo:native <!nocheck>,
+ rustc:native <!nocheck>,
+ libstd-rust-dev <!nocheck>,
+ librust-lazy-static-1+default-dev (>= 1.2.0-~~) <!nocheck>,
+ librust-regex-1+default-dev (>= 1.1-~~) <!nocheck>
+Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+Uploaders:
+ Dylan Aïssi <daissi@debian.org>
+Standards-Version: 4.5.1
+Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/inflector]
+Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/inflector
+Homepage: https://github.com/whatisinternet/inflector
+X-Cargo-Crate: Inflector
+Rules-Requires-Root: no
+
+Package: librust-inflector-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends}
+Recommends:
+ librust-inflector+heavyweight-dev (= ${binary:Version})
+Suggests:
+ librust-inflector+lazy-static-dev (= ${binary:Version}),
+ librust-inflector+regex-dev (= ${binary:Version})
+Provides:
+ librust-inflector+unstable-dev (= ${binary:Version}),
+ librust-inflector-0-dev (= ${binary:Version}),
+ librust-inflector-0+unstable-dev (= ${binary:Version}),
+ librust-inflector-0.11-dev (= ${binary:Version}),
+ librust-inflector-0.11+unstable-dev (= ${binary:Version}),
+ librust-inflector-0.11.4-dev (= ${binary:Version}),
+ librust-inflector-0.11.4+unstable-dev (= ${binary:Version})
+Description: Adds String based inflections for Rust - Rust source code
+ Snake, kebab, camel, sentence, class, title and table cases as well as
+ ordinalize, deordinalize, demodulize, foreign key, and pluralize/singularize
+ are supported as both traits and pure functions acting on String types.
+ .
+ This package contains the source for the Rust Inflector crate, packaged by
+ debcargo for use with cargo and dh-cargo.
+
+Package: librust-inflector+heavyweight-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-inflector-dev (= ${binary:Version}),
+ librust-inflector+regex-dev (= ${binary:Version}),
+ librust-inflector+lazy-static-dev (= ${binary:Version})
+Provides:
+ librust-inflector+default-dev (= ${binary:Version}),
+ librust-inflector-0+heavyweight-dev (= ${binary:Version}),
+ librust-inflector-0+default-dev (= ${binary:Version}),
+ librust-inflector-0.11+heavyweight-dev (= ${binary:Version}),
+ librust-inflector-0.11+default-dev (= ${binary:Version}),
+ librust-inflector-0.11.4+heavyweight-dev (= ${binary:Version}),
+ librust-inflector-0.11.4+default-dev (= ${binary:Version})
+Description: Adds String based inflections for Rust - feature "heavyweight" and 1 more
+ Snake, kebab, camel, sentence, class, title and table cases as well as
+ ordinalize, deordinalize, demodulize, foreign key, and pluralize/singularize
+ are supported as both traits and pure functions acting on String types.
+ .
+ This metapackage enables feature "heavyweight" for the Rust Inflector crate, by
+ pulling in any additional dependencies needed by that feature.
+ .
+ Additionally, this package also provides the "default" feature.
+
+Package: librust-inflector+lazy-static-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-inflector-dev (= ${binary:Version}),
+ librust-lazy-static-1+default-dev (>= 1.2.0-~~)
+Provides:
+ librust-inflector-0+lazy-static-dev (= ${binary:Version}),
+ librust-inflector-0.11+lazy-static-dev (= ${binary:Version}),
+ librust-inflector-0.11.4+lazy-static-dev (= ${binary:Version})
+Description: Adds String based inflections for Rust - feature "lazy_static"
+ Snake, kebab, camel, sentence, class, title and table cases as well as
+ ordinalize, deordinalize, demodulize, foreign key, and pluralize/singularize
+ are supported as both traits and pure functions acting on String types.
+ .
+ This metapackage enables feature "lazy_static" for the Rust Inflector crate, by
+ pulling in any additional dependencies needed by that feature.
+
+Package: librust-inflector+regex-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-inflector-dev (= ${binary:Version}),
+ librust-regex-1+default-dev (>= 1.1-~~)
+Provides:
+ librust-inflector-0+regex-dev (= ${binary:Version}),
+ librust-inflector-0.11+regex-dev (= ${binary:Version}),
+ librust-inflector-0.11.4+regex-dev (= ${binary:Version})
+Description: Adds String based inflections for Rust - feature "regex"
+ Snake, kebab, camel, sentence, class, title and table cases as well as
+ ordinalize, deordinalize, demodulize, foreign key, and pluralize/singularize
+ are supported as both traits and pure functions acting on String types.
+ .
+ This metapackage enables feature "regex" for the Rust Inflector crate, by
+ pulling in any additional dependencies needed by that feature.

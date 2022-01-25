@@ -1,0 +1,34 @@
+Test-Command: /usr/share/cargo/bin/cargo-auto-test Inflector 0.11.4 --all-targets --all-features
+Features: test-name=rust-inflector:@
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test Inflector 0.11.4 --all-targets --no-default-features --features unstable
+Features: test-name=librust-inflector-dev:unstable
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test Inflector 0.11.4 --all-targets --no-default-features
+Features: test-name=librust-inflector-dev:
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test Inflector 0.11.4 --all-targets 
+Features: test-name=librust-inflector+heavyweight-dev:default
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test Inflector 0.11.4 --all-targets --no-default-features --features heavyweight
+Features: test-name=librust-inflector+heavyweight-dev:heavyweight
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test Inflector 0.11.4 --all-targets --no-default-features --features lazy_static
+Features: test-name=librust-inflector+lazy-static-dev:lazy_static
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test Inflector 0.11.4 --all-targets --no-default-features --features regex
+Features: test-name=librust-inflector+regex-dev:regex
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
